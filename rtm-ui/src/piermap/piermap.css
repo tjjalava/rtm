@@ -9,24 +9,36 @@
     align-items: flex-end;
     width: 100%;
     font-size: 0.8em;
+    position: relative;
+}
+
+.stats-table {
+    margin: 20px 0 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.stats-table td, .stats-table th  {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.pier-column {
+    flex: 1 1 33%;
+    margin: 0 10px;
+}
+
+.pier-column h1 {
+    text-align: left;
 }
 
 .pier {
     display: flex;
     flex-direction: row;
-    flex: 1 1 33%;
     justify-content: center;
-    margin: 0 10px;
-}
-
-.pier:first-child {
-    margin-left: 3px;
-    justify-content: flex-start;
-}
-
-.pier:last-child {
-    margin-right: 3px;
-    justify-content: flex-end;
+    width: 100%;
 }
 
 .column-left {

@@ -1,22 +1,35 @@
 import React from "react";
 import "./piermap.css";
 import pierconf from "./pierconf";
-import berths from "./berths";
 
 let emptyCounter = 1;
+
+const stats = {
+  R: {
+    total: pierconf.R.left.length + pierconf.R.right.length + 1
+  },
+  T: {
+    total: pierconf.T.left.length + pierconf.T.right.length + 1
+  },
+  M: {
+    total: pierconf.M.left.length + pierconf.M.right.length + 1
+  }
+};
+
+
 
 const Berth = (props) => {
   const {berthConf, prevEmpty} = props;
   const classNames = ["berth"];
   const id = berthConf.id;
-  const berth = berths[id];
+  const berth = berthConf.berthOwner;
 
   if (!id) {
     classNames.push("empty");
     if (!prevEmpty) {
       classNames.push("first-empty");
     }
-  } 
+  }
 
   if (berth && berth.customerName && berth.customerName.length > 20) {
     berth.customerName = berth.customerName.split(",")[0];
@@ -62,12 +75,17 @@ const handleBeams = (berthList) => {
   }
 };
 
-const Pier = ({pierName}) => {
+const Pier = ({pierName, berths}) => {
+
+  const createBerth = (berthConf, prevEmpty, className) => {
+    berthConf.berthOwner = berths[berthConf.id];
+    return <Berth key={berthConf.id || emptyCounter++} className={className} prevEmpty={prevEmpty} berthConf={berthConf}/>;
+  };
 
   const mapBerths = berthList => {
     let prevEmpty = true;
     return berthList.map(b => {
-      const berth = <Berth key={b.id || emptyCounter++} prevEmpty={prevEmpty} berthConf={b}/>;
+      const berth = createBerth(b, prevEmpty);
       prevEmpty = !b.id;
       return berth;
     });
@@ -77,31 +95,106 @@ const Pier = ({pierName}) => {
   handleBeams(pier.left);
   handleBeams(pier.right);
   return (
-    <div className="pier">
-      <div className="column column-left">
-        {mapBerths(pier.left)}
-      </div>
-      <div className="pier-divider">
-        <div className="pier-end">
-          <div className="pier-type badge">PP</div>
+    <div className="pier-column">
+      {pierName === "R" && <h1>RTM:n laiturikartta {new Date().getFullYear()}</h1>}
+      {pierName === "R" && <PierStats berths={berths}/>}
+      <div className="pier">
+        <div className="column column-left">
+          {mapBerths(pier.left)}
         </div>
-        <div className="pier-filler"/>
-        <div className="pier-name">{pierName}</div>
-      </div>
-      <div className="column column-right">
-        <Berth className="pier-end" berthConf={pier.end}/>
-        {mapBerths(pier.right)}
+        <div className="pier-divider">
+          <div className="pier-end">
+            <div className="pier-type badge">PP</div>
+          </div>
+          <div className="pier-filler"/>
+          <div className="pier-name">{pierName}</div>
+        </div>
+        <div className="column column-right">
+          {createBerth(pier.end, false, "pier-end")}
+          {mapBerths(pier.right)}
+        </div>
       </div>
     </div>
   );
 };
 
-const PierMap = () => (
-  <div className="pier-map">
-    <Pier pierName="R"/>
-    <Pier pierName="T"/>
-    <Pier pierName="M"/>
-  </div>
-);
+class PierStats extends React.Component {
+  render () {
+    const {berths} = this.props;
+    stats.total = {
+      total: 0,
+      occupied: 0,
+      vacant: 0
+    };
+    ["R", "T", "M"].forEach(pier => {
+      const total = stats[pier].total;
+      const occupied = stats[pier].occupied = Object.entries(berths).filter(([b, e]) => b.startsWith(pier) && e.customerName).length;
+      const vacant = stats[pier].vacant = total - occupied;
+      stats.total.total += total;
+      stats.total.occupied += occupied;
+      stats.total.vacant += vacant;
+    });
+
+    return (
+      <table className="stats-table">
+        <tbody>
+          {["R", "T", "M"].map(pier => (
+            <tr key={pier}>
+              <th>{pier}</th>
+              <td>{stats[pier].total}</td>
+              <td>{stats[pier].occupied}</td>
+              <td>{stats[pier].vacant}</td>
+            </tr>
+          ))}
+        </tbody>
+        <thead>
+          <tr>
+            <th>Laituri</th>
+            <th>Paikkoja</th>
+            <th>Varattu</th>
+            <th>Vapaana</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Yhteensä</th>
+            <th>{stats.total.total}</th>
+            <th>{stats.total.occupied}</th>
+            <th>{stats.total.vacant}</th>
+          </tr>
+        </tfoot>
+      </table>
+    );
+  }
+}
+
+class PierMap extends React.Component {
+
+  constructor (props) {
+    super(props);
+    this.state = { berths: null };
+  }
+
+  componentDidMount () {
+    fetch(new Request("/berths.json"))
+      .then(resp => resp.json())
+      .then(berths => this.setState({berths}));
+  }
+
+  render () {
+    const berths = this.state.berths;
+    if (berths) {
+      return (
+        <div className="pier-map">
+          <Pier pierName="R" berths={berths}/>
+          <Pier pierName="T" berths={berths}/>
+          <Pier pierName="M" berths={berths}/>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+}
 
 export default PierMap;
