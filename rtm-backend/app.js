@@ -18,7 +18,8 @@ app.use(session({
   cookie: { secure: process.env.SESSION_COOKIE_SECURE === "true" },
   resave: false,
   saveUninitialized: false,
-  secret: process.env.APP_SECRET
+  secret: process.env.APP_SECRET,
+  proxy: true
 }));
 
 app.use("/api", api);
