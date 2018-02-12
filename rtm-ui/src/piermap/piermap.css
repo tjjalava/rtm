@@ -12,6 +12,12 @@
     position: relative;
 }
 
+.stats-component h1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .stats-table {
     margin: 20px 0 20px;
     border: 1px solid black;
@@ -225,5 +231,9 @@
 
     .column {
         margin-bottom: 25px !important;
+    }
+
+    .stats-component h1 button {
+        display: none !important;
     }
 }

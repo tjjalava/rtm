@@ -52,6 +52,7 @@ const login = async (username, password, ttl) => {
       err.status = 403;
       throw err;
     }
+    return json;
   } else {
     const err = new Error(loginResp.statusText);
     err.status = loginResp.status;

@@ -75,7 +75,7 @@ const handleBeams = (berthList) => {
   }
 };
 
-const Pier = ({pierName, berths}) => {
+const Pier = ({pierName, berths, statsComponent}) => {
 
   const createBerth = (berthConf, prevEmpty, className) => {
     berthConf.berthOwner = berths[berthConf.id];
@@ -96,8 +96,7 @@ const Pier = ({pierName, berths}) => {
   handleBeams(pier.right);
   return (
     <div className="pier-column">
-      {pierName === "R" && <h1>RTM:n laiturikartta {new Date().getFullYear()}</h1>}
-      {pierName === "R" && <PierStats berths={berths}/>}
+      {statsComponent}
       <div className="pier">
         <div className="column column-left">
           {mapBerths(pier.left)}
@@ -172,21 +171,42 @@ class PierMap extends React.Component {
 
   constructor (props) {
     super(props);
-    this.state = { berths: null };
+    this.state = {
+      berths: null
+    };
   }
 
-  componentDidMount () {
-    fetch(new Request("/berths.json"))
-      .then(resp => resp.json())
-      .then(berths => this.setState({berths}));
+  fetchBerths = async () => {
+    const resp = await fetch(new Request("/api/berths"), {
+      mode: "same-origin",
+      credentials: "include"
+    });
+    if (resp.ok) {
+      const berths = await resp.json();
+      this.setState({berths});
+    } else {
+      const error = new Error(resp.statusText);
+      error.status = resp.status;
+      this.props.errorHandler(error);
+    }
+  };
+
+  async componentDidMount () {
+    await this.fetchBerths();
   }
 
   render () {
     const berths = this.state.berths;
+    const statsComponent = (
+      <div className="stats-component">
+        <h1><span>RTM:n laiturikartta {new Date().getFullYear()}</span><button onClick={this.fetchBerths}>Päivitä</button></h1>
+        <PierStats berths={berths}/>
+      </div>
+    );
     if (berths) {
       return (
         <div className="pier-map">
-          <Pier pierName="R" berths={berths}/>
+          <Pier pierName="R" berths={berths} statsComponent={statsComponent}/>
           <Pier pierName="T" berths={berths}/>
           <Pier pierName="M" berths={berths}/>
         </div>
