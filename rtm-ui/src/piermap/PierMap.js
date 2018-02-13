@@ -1,6 +1,10 @@
 import React from "react";
 import "./piermap.css";
 import pierconf from "./pierconf";
+import moment from "moment";
+import "moment/locale/fi";
+
+moment.locale("fi");
 
 let emptyCounter = 1;
 
@@ -48,13 +52,17 @@ const Berth = (props) => {
   }
 
   let pierInfo = berthConf.defaultOwner;
+  let pierId;
   if (id && berth && berth.customerName) {
-    pierInfo = berth.customerName;
+    pierId = <a href={`https://suuli.spv.fi/#/berth-edit/${berth.id}`} target="_blank">{id}</a>
+    pierInfo = <a href={`https://suuli.spv.fi/#/person/${berth.ownerId}`} target="_blank">{berth.customerName}</a>;
+  } else {
+    pierId = id;
   }
 
   return (
     <div className={classNames.join(" ")}>
-      <div className="pier-id">{id}</div>
+      <div className="pier-id">{pierId}</div>
       <div className="pier-info">{pierInfo}</div>
       {berthConf.type && <div className="pier-type badge">{berthConf.type}</div>}
       {berthConf.width && <div className="pier-width badge">{berthConf.width.toFixed(1)}</div>}
@@ -197,10 +205,12 @@ class PierMap extends React.Component {
 
   render () {
     const berths = this.state.berths;
+    const printDate = moment();
     const statsComponent = (
       <div className="stats-component">
-        <h1><span>RTM:n laiturikartta {new Date().getFullYear()}</span><button onClick={this.fetchBerths}>Päivitä</button></h1>
+        <h1><span>RTM:n laiturikartta {printDate.format("YYYY")}</span><button onClick={this.fetchBerths}>Päivitä</button></h1>
         <PierStats berths={berths}/>
+        <div className="print-date">Tulostettu: {printDate.format("LLL")}</div>
       </div>
     );
     if (berths) {

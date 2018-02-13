@@ -12,14 +12,32 @@
     position: relative;
 }
 
+.pier-id a, .pier-info a {
+    color: black;
+    text-decoration: none;
+}
+
+.pier-id a:hover, .pier-info a:hover {
+    text-decoration: underline;
+    font-style: italic;
+}
+
 .stats-component h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
+.stats-component .print-date {
+    display: none;
+    height: 15px;
+    text-align: left;
+    font-size: 85%;
+    font-style: italic;
+}
+
 .stats-table {
-    margin: 20px 0 20px;
+    margin: 20px 0;
     border: 1px solid black;
     border-collapse: collapse;
     table-layout: fixed;
@@ -235,5 +253,13 @@
 
     .stats-component h1 button {
         display: none !important;
+    }
+
+    .stats-component .print-date {
+        display: block !important;
+    }
+
+    .stats-table {
+        margin-bottom: 5px;
     }
 }

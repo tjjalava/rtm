@@ -65,8 +65,8 @@ const getBerths = async token => {
   const resp = await doFetch(mkRequest(`api/Berths/search?query=${encodeURIComponent(JSON.stringify(query))}`, "GET", token));
   const map = {};
   resp.forEach(r => {
-    const {berthNumber, berthType, boatName, customerName, name} = r;
-    map[berthNumber] = {berthNumber, berthType, boatName, customerName, name};
+    const {id, berthNumber, berthType, boatName, customerName, name, ownerId} = r;
+    map[berthNumber] = {id, berthNumber, berthType, boatName, customerName, name, ownerId};
   });
   return map;
 };
