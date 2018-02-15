@@ -7,10 +7,11 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 
 const api = require("./routes/api");
+const mailgun = require("./routes/mailgun");
 
 const app = express();
 
-app.use(logger("dev"));
+app.use(logger("combined"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -23,6 +24,7 @@ app.use(session({
 }));
 
 app.use("/api", api);
+app.use("/mailgun", mailgun);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
