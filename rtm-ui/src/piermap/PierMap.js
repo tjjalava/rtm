@@ -71,8 +71,12 @@ const Berth = (props) => {
 };
 
 const handleBeams = (berthList) => {
-  const firstBeam = berthList.findIndex(b => "AP" === b.type);
-  if (firstBeam >= 0) {
+  let firstBeam = 0;
+  while (firstBeam < berthList.length && "AP" !== berthList[firstBeam].type) {
+    firstBeam++;
+  }
+
+  if (firstBeam >= 0 && firstBeam < berthList.length) {
     let i = firstBeam;
     for (; i < berthList.length && "AP" === berthList[i].type; i += 2) {
       berthList[i].beam = true;
