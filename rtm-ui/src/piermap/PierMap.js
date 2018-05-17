@@ -138,8 +138,9 @@ class PierStats extends React.Component {
       vacant: 0
     };
     ["R", "T", "M"].forEach(pier => {
-      const total = stats[pier].total;
-      const occupied = stats[pier].occupied = Object.entries(berths).filter(([b, e]) => b.startsWith(pier) && e.customerName).length;
+      const pierList = Object.entries(berths).filter(([b]) => b.startsWith(pier));
+      const total = stats[pier].total = pierList.length;
+      const occupied = stats[pier].occupied = pierList.filter(([_, e]) => e.customerName).length;
       const vacant = stats[pier].vacant = total - occupied;
       stats.total.total += total;
       stats.total.occupied += occupied;
