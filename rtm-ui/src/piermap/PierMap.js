@@ -36,6 +36,7 @@ const mapBerthType = (berthType) => {
 };
 
 const rendered = {};
+const infoMissing = {};
 
 const Berth = (props) => {
   const {berthConf, prevEmpty} = props;
@@ -100,11 +101,19 @@ const Pier = ({pierName, berths, statsComponent}) => {
 
   const mapBerths = berthList => {
     let prevEmpty = true;
-    return berthList.map(b => {
-      const berth = createBerth(b, prevEmpty);
-      prevEmpty = !b.id;
-      return berth;
-    });
+    return berthList
+      .filter(b => {
+        if (b.id && !berths[b.id]) {
+          infoMissing[b.id] = true;
+          return false;
+        }
+        return true;
+      })
+      .map(b => {
+        const berth = createBerth(b, prevEmpty);
+        prevEmpty = !b.id;
+        return berth;
+      });
   };
 
   const getType = berth => {
@@ -254,8 +263,8 @@ class PierMap extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    const notRendered = [];
     const berths = this.state.berths;
+    const notRendered = [];
     for (const berthId in berths) {
       if (berths.hasOwnProperty(berthId) && !rendered[berthId]) {
         notRendered.push(berthId);
@@ -264,6 +273,11 @@ class PierMap extends React.Component {
 
     if (notRendered.length) {
       console.warn("Laiturit määritelty Suulissa mutta ei laiturikartassa: " + notRendered.sort().join(","));
+    }
+
+    const missing = Object.entries(infoMissing).map(([id, _]) => id);
+    if (missing.length) {
+      console.warn("Laiturit määritelty laiturikartassa mutta ei Suulissa: " + missing.sort().join(","));
     }
   }
 
