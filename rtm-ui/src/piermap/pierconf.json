@@ -1,951 +1,640 @@
 {
   "R": {
     "end": {
-      "id": "R81",
-      "width": 4.5
+      "id": "R81"
     },
     "left": [
       {
         "id": "R74",
-        "type": "KP",
-        "width": 4.5,
         "span": 4
       },
       {
-        "id": "R66",
-        "width": 4
+        "id": "R66"
       },
       {
-        "id": "R64",
-        "width": 3.5
+        "id": "R64"
       },
       {
-        "id": "R62",
-        "width": 3.5
+        "id": "R62"
       },
       {
-        "id": "R60",
-        "width": 3.5
+        "id": "R60"
       },
       {
-        "id": "R58",
-        "width": 3.5
+        "id": "R58"
       },
       {
-        "id": "R56",
-        "width": 3.5
+        "id": "R56"
       },
       {
-        "id": "R54",
-        "width": 3.5
+        "id": "R54"
       },
       {
-        "id": "R52",
-        "width": 3
+        "id": "R52"
       },
       {
-        "id": "R50",
-        "width": 3
+        "id": "R50"
       },
       {
-        "id": "R48",
-        "width": 3
+        "id": "R48"
       },
       {
-        "id": "R46",
-        "width": 3
+        "id": "R46"
       },
       {
-        "id": "R44",
-        "width": 3
+        "id": "R44"
       },
       {
-        "id": "R42",
-        "width": 3
+        "id": "R42"
       },
       {
-        "id": "R40",
-        "width": 3
+        "id": "R40"
       },
       {
-        "id": "R38",
-        "width": 3
+        "id": "R38"
       },
       {
-        "id": "R36",
-        "width": 3
+        "id": "R36"
       },
       {
-        "id": "R34",
-        "width": 3
+        "id": "R34"
       },
       {
-        "id": "R32",
-        "width": 3
+        "id": "R32"
       },
       {
-        "id": "R30",
-        "width": 3,
-        "type": "AP"
+        "id": "R30"
       },
       {
-        "id": "R28",
-        "width": 3,
-        "type": "AP"
+        "id": "R28"
       },
       {
-        "id": "R26",
-        "width": 3,
-        "type": "AP"
+        "id": "R26"
       },
       {
-        "id": "R24",
-        "width": 3,
-        "type": "AP"
+        "id": "R24"
       },
       {
-        "id": "R22",
-        "width": 3,
-        "type": "AP"
+        "id": "R22"
       },
       {
-        "id": "R20",
-        "width": 3,
-        "type": "AP"
+        "id": "R20"
       },
       {
-        "id": "R18",
-        "width": 3,
-        "type": "AP"
+        "id": "R18"
       },
       {
-        "id": "R16",
-        "width": 3,
-        "type": "AP"
+        "id": "R16"
       },
       {
-        "id": "R14",
-        "width": 3,
-        "type": "AP"
+        "id": "R14"
       },
       {
-        "id": "R12",
-        "width": 3,
-        "type": "AP"
+        "id": "R12"
       },
       {
-        "id": "R10",
-        "width": 3
+        "id": "R10"
       },
       {
-        "id": "R8",
-        "width": 2.5
+        "id": "R8"
       },
       {
-        "id": "R6",
-        "width": 2.5
+        "id": "R6"
       },
       {
-        "id": "R4",
-        "width": 2.5
+        "id": "R4"
       },
       {
-        "id": "R2",
-        "width": 2.5
+        "id": "R2"
       },
       {
-        "id": "R80",
-        "width": 2
+        "id": "R80"
       }
     ],
     "right": [
       {
-        "id": "R73",
-        "width": 4
+        "id": "R73"
       },
       {
-        "id": "R71",
-        "width": 4
+        "id": "R71"
       },
       {
-        "id": "R69",
-        "width": 4
+        "id": "R69"
       },
       {
-        "id": "R67",
-        "width": 4
+        "id": "R67"
       },
       {
-        "id": "R65",
-        "width": 3.5
+        "id": "R65"
       },
       {
-        "id": "R63",
-        "width": 3.5
+        "id": "R63"
       },
       {
-        "id": "R61",
-        "width": 3.5
+        "id": "R61"
       },
       {
-        "id": "R59",
-        "width": 3.5
+        "id": "R59"
       },
       {
-        "id": "R57",
-        "width": 3.5
+        "id": "R57"
       },
       {
-        "id": "R55",
-        "width": 3.5
+        "id": "R55"
       },
       {
-        "id": "R53",
-        "width": 3.5
+        "id": "R53"
       },
       {
-        "id": "R51",
-        "width": 3.5
+        "id": "R51"
       },
       {
-        "id": "R49",
-        "width": 3.5
+        "id": "R49"
       },
       {
-        "id": "R47",
-        "width": 3.5
+        "id": "R47"
       },
       {
-        "id": "R45",
-        "width": 3.5
+        "id": "R45"
       },
       {
-        "id": "R43",
-        "width": 3.5
+        "id": "R43"
       },
       {
-        "id": "R41",
-        "width": 3
+        "id": "R41"
       },
       {
-        "id": "R39",
-        "width": 3
+        "id": "R39"
       },
       {
-        "id": "R37",
-        "width": 3
+        "id": "R37"
       },
       {
-        "id": "R35",
-        "width": 3
+        "id": "R35"
       },
       {
-        "id": "R33",
-        "width": 3
+        "id": "R33"
       },
       {
-        "id": "R31",
-        "width": 3
+        "id": "R31"
       },
       {
-        "id": "R29",
-        "width": 3
+        "id": "R29"
       },
       {
-        "id": "R27",
-        "width": 3
+        "id": "R27"
       },
       {
-        "id": "R25",
-        "width": 3,
-        "type": "AP"
+        "id": "R25"
       },
       {
-        "id": "R23",
-        "width": 3,
-        "type": "AP"
+        "id": "R23"
       },
       {
-        "id": "R21",
-        "width": 3,
-        "type": "AP"
+        "id": "R21"
       },
       {
-        "id": "R19",
-        "width": 3,
-        "type": "AP"
+        "id": "R19"
       },
       {
-        "id": "R17",
-        "width": 3,
-        "type": "AP"
+        "id": "R17"
       },
       {
-        "id": "R15",
-        "width": 3,
-        "type": "AP"
+        "id": "R15"
       },
       {
-        "id": "R13",
-        "width": 3,
-        "type": "AP"
+        "id": "R13"
       },
       {
-        "id": "R11",
-        "width": 3,
-        "type": "AP"
+        "id": "R11"
       },
       {
-        "id": "R9",
-        "width": 3
+        "id": "R9"
       },
       {
-        "id": "R7",
-        "width": 2.5
+        "id": "R7"
       },
       {
-        "id": "R5",
-        "width": 2.5
+        "id": "R5"
       },
       {
-        "id": "R3",
-        "width": 2.5
+        "id": "R3"
       },
       {
-        "id": "R1",
-        "width": 2.5
+        "id": "R1"
       },
       {
-        "id": "R77",
-        "width": 2.5
+        "id": "R77"
       }
     ]
   },
   "T": {
     "end": {
-      "id": "T73",
-      "width": 4.5
+      "id": "T73"
     },
     "left": [
       {
         "id": "T58",
-        "type": "KP",
-        "width": 4.5,
         "span": 3
       },
       {
         "id": "T56",
-        "type": "KP",
-        "width": 4.5,
         "span": 3
       },
       {
         "id": "T54",
-        "type": "KP",
-        "width": 4.5,
         "span": 3
       },
       {
         "id": "T52",
-        "type": "KP",
-        "width": 4.5,
         "span": 3
       },
       {
       },
       {
-        "id": "T48",
-        "width": 3
+        "id": "T48"
       },
       {
-        "id": "T46",
-        "width": 3
+        "id": "T46"
       },
       {
-        "id": "T44",
-        "width": 3
+        "id": "T44"
       },
       {
-        "id": "T42",
-        "width": 3
+        "id": "T42"
       },
       {
-        "id": "T40",
-        "width": 3
+        "id": "T40"
       },
       {
-        "id": "T38",
-        "width": 2.5
+        "id": "T38"
       },
       {
-        "id": "T36",
-        "width": 2.5
+        "id": "T36"
       },
       {
-        "id": "T34",
-        "width": 2.5
+        "id": "T34"
       },
       {
-        "id": "T32",
-        "width": 2.5
+        "id": "T32"
       },
       {
-        "id": "T30",
-        "width": 2.5
+        "id": "T30"
       },
       {
-        "id": "T28",
-        "width": 2.5
+        "id": "T28"
       },
       {
-        "id": "T26",
-        "width": 2.5
+        "id": "T26"
       },
       {
-        "id": "T24",
-        "width": 2.5
+        "id": "T24"
       },
       {
-        "id": "T20",
-        "width": 2.5
+        "id": "T20"
       },
       {
-        "id": "T18",
-        "width": 2.5
+        "id": "T18"
       },
       {
-        "id": "T16",
-        "width": 2.5
+        "id": "T16"
       },
       {
-        "id": "T14",
-        "width": 2.5
+        "id": "T14"
       },
       {
-        "id": "T12",
-        "width": 2.5
+        "id": "T12"
       },
       {
-        "id": "T10",
-        "width": 2.5
+        "id": "T10"
       },
       {
-        "id": "T8",
-        "width": 2.5
+        "id": "T8"
       },
       {
-        "id": "T6",
-        "width": 2.5
+        "id": "T6"
       },
       {
-        "id": "T4",
-        "width": 2.5
+        "id": "T4"
       },
       {
-        "id": "T2",
-        "width": 2
+        "id": "T2"
       }
     ],
     "right": [
       {
-        "id": "T71",
-        "width": 4.5
+        "id": "T71"
       },
       {
-        "id": "T69",
-        "width": 4.5
+        "id": "T69"
       },
       {
-        "id": "T67",
-        "width": 4
+        "id": "T67"
       },
       {
-        "id": "T65",
-        "width": 4
+        "id": "T65"
       },
       {
-        "id": "T63",
-        "width": 4
+        "id": "T63"
       },
       {
-        "id": "T61",
-        "width": 4
+        "id": "T61"
       },
       {
-        "id": "T59",
-        "width": 3.5
+        "id": "T59"
       },
       {
-        "id": "T57",
-        "width": 3.5
+        "id": "T57"
       },
       {
-        "id": "T55",
-        "width": 3.5
+        "id": "T55"
       },
       {
-        "id": "T53",
-        "width": 3.5
+        "id": "T53"
       },
       {
-        "id": "T51",
-        "width": 3.5
+        "id": "T51"
       },
       {
-        "id": "T49",
-        "width": 3.5
+        "id": "T49"
       },
       {
-        "id": "T47",
-        "width": 3.5
+        "id": "T47"
       },
       {
-        "id": "T45",
-        "width": 3.5
+        "id": "T45"
       },
       {
-        "id": "T43",
-        "width": 3.5
+        "id": "T43"
       },
       {
-        "id": "T41",
-        "width": 3.5
+        "id": "T41"
       },
       {
-        "id": "T39",
-        "width": 3.5
+        "id": "T39"
       },
       {
-        "id": "T37",
-        "width": 3.5
+        "id": "T37"
       },
       {
-        "id": "T35",
-        "width": 3
+        "id": "T35"
       },
       {
-        "id": "T33",
-        "width": 3
+        "id": "T33"
       },
       {
-        "id": "T31",
-        "width": 3,
-        "type": "AP"
+        "id": "T31"
       },
       {
-        "id": "T29",
-        "width": 3,
-        "type": "AP"
+        "id": "T29"
       },
       {
-        "id": "T27",
-        "width": 3,
-        "type": "AP"
+        "id": "T27"
       },
       {
-        "id": "T25",
-        "width": 3,
-        "type": "AP"
+        "id": "T25"
       },
       {
-        "id": "T23",
-        "width": 3,
-        "type": "AP"
+        "id": "T23"
       },
       {
-        "id": "T21",
-        "width": 3,
-        "type": "AP"
+        "id": "T21"
       },
       {
-        "id": "T19",
-        "width": 3,
-        "type": "AP"
+        "id": "T19"
       },
       {
-        "id": "T17",
-        "width": 3,
-        "type": "AP"
+        "id": "T17"
       },
       {
-        "id": "T15",
-        "width": 3
+        "id": "T15"
       },
       {
-        "id": "T13",
-        "width": 2.5
+        "id": "T13"
       },
       {
-        "id": "T11",
-        "width": 2.5
+        "id": "T11"
       },
       {
-        "id": "T9",
-        "width": 2.5
+        "id": "T9"
       },
       {
-        "id": "T7",
-        "width": 2.5
+        "id": "T7"
       },
       {
-        "id": "T5",
-        "width": 2.5
+        "id": "T5"
       },
       {
-        "id": "T3",
-        "width": 2.5
+        "id": "T3"
       },
       {
-        "id": "T1",
-        "width": 2.5
+        "id": "T1"
       }
     ]
   },
   "M": {
     "end": {
-      "id": "M81",
-      "width": 4.5
+      "id": "M54"
     },
     "left": [
       {
-        "id": "M82",
-        "type": "KP",
-        "width": 4.5,
-        "span": 3
-      },
-      {},
-      {
-        "id": "M76",
-        "type": "KP",
-        "width": 4.5,
-        "span": 4
-      },
-      {},
-      {
-        "id": "M68",
-        "width": 2.5
-      },
-      {
-        "id": "M66",
-        "width": 2.5
-      },
-      {
-        "id": "M64",
-        "width": 2.5
-      },
-      {
-        "id": "M62",
-        "width": 2.5
-      },
-      {
-        "id": "M60",
-        "width": 2.5
-      },
-      {
-        "id": "M58",
-        "width": 2.5
-      },
-      {
-        "id": "M56",
-        "width": 2.5
-      },
-      {
-        "id": "M54",
-        "width": 2.5
-      },
-      {
         "id": "M52",
-        "width": 2.5
+        "span": 4
       },
       {
         "id": "M50",
-        "width": 2.5
+        "span": 4
       },
       {
         "id": "M48",
-        "width": 3
+        "span": 4
       },
       {
         "id": "M46",
-        "width": 3
+        "span": 4
       },
       {
-        "id": "M44",
-        "width": 3
+        "id": "M44"
       },
       {
-        "id": "M42",
-        "width": 3
+        "id": "M42"
       },
       {
-        "id": "M40",
-        "width": 3
+        "id": "M40"
       },
       {
-        "id": "M38",
-        "width": 3
+        "id": "M38"
       },
       {
-        "id": "M36",
-        "width": 3
+        "id": "M36"
       },
       {
-        "id": "M34",
-        "width": 3
+        "id": "M34"
       },
       {
-        "id": "M32",
-        "width": 3
+        "id": "M32"
       },
       {
-        "id": "M30",
-        "width": 3
+        "id": "M30"
       },
       {
-        "id": "M28",
-        "width": 3
+        "id": "M28"
       },
       {
-        "id": "M26",
-        "width": 3
+        "id": "M26"
       },
       {
-        "id": "M24",
-        "width": 3
+        "id": "M24"
       },
       {
-        "id": "M22",
-        "width": 3
+        "id": "M22"
       },
       {
-        "id": "M20",
-        "width": 3
+        "id": "M20"
       },
       {
-        "id": "M18",
-        "width": 2.5
+        "id": "M18"
       },
       {
-        "id": "M16",
-        "width": 2.5
+        "id": "M16"
       },
       {
-        "id": "M14",
-        "width": 2.5
+        "id": "M14"
       },
       {
-        "id": "M12",
-        "width": 2.5
+        "id": "M12"
       },
       {
-        "id": "M10",
-        "width": 2.5
+        "id": "M10"
       },
       {
-        "id": "M8",
-        "width": 2.5
+        "id": "M8"
       },
       {
-        "id": "M6",
-        "width": 2.5
+        "id": "M6"
       },
       {
-        "id": "M4",
-        "width": 2.5
+        "id": "M4"
       },
       {
-        "id": "M2",
-        "width": 2.5
-      },
-      {
-        "id": "M92",
-        "width": 2.5
+        "id": "M2"
       }
     ],
     "right": [
       {
-        "span": 3
+        "id": "M75"
       },
       {
-        "id": "M79",
-        "width": 4
+        "id": "M73"
       },
       {
-        "id": "M77",
-        "width": 4
+        "id": "M71"
       },
       {
-        "id": "M75",
-        "width": 4
+        "id": "M69"
       },
       {
-        "id": "M73",
-        "width": 4
+        "id": "M67"
       },
       {
-        "id": "M71",
-        "width": 4
+        "id": "M65"
       },
       {
-        "id": "M69",
-        "width": 4
+        "id": "M63"
       },
       {
-        "id": "M67",
-        "width": 4
+        "id": "M61"
       },
       {
-        "id": "M65",
-        "width": 4
+        "id": "M59"
       },
       {
-        "id": "M63",
-        "width": 4,
-        "type": "PP"
+        "id": "M57"
       },
       {
-        "id": "M61",
-        "width": 4,
-        "type": "PP"
+        "id": "M55"
       },
       {
-        "id": "M59",
-        "width": 3,
-        "type": "PP"
+        "id": "M53"
       },
       {
-        "id": "M57",
-        "width": 3,
-        "type": "PP"
+        "id": "M51"
       },
       {
-        "id": "M55",
-        "width": 3,
-        "type": "PP"
+        "id": "M49"
       },
       {
-        "id": "M53",
-        "width": 3,
-        "type": "PP"
+        "id": "M47"
       },
       {
-        "id": "M51",
-        "width": 3,
-        "type": "PP"
+        "id": "M45"
       },
       {
-        "id": "M49",
-        "width": 3,
-        "type": "PP"
+        "id": "M43"
       },
       {
-        "id": "M47",
-        "width": 3,
-        "type": "PP"
+        "id": "M41"
       },
       {
-        "id": "M45",
-        "width": 3,
-        "type": "PP"
+        "id": "M39"
       },
       {
-        "id": "M43",
-        "width": 3,
-        "type": "PP"
+        "id": "M37"
       },
       {
-        "id": "M41",
-        "width": 3,
-        "type": "PP"
+        "id": "M35"
       },
       {
-        "id": "M39",
-        "width": 3,
-        "type": "PP"
+        "id": "M33"
       },
       {
-        "id": "M37",
-        "width": 3,
-        "type": "PP"
+        "id": "M31"
       },
       {
-        "id": "M35",
-        "width": 3,
-        "type": "PP"
+        "id": "M29"
       },
       {
-        "id": "M33",
-        "width": 2.5,
-        "type": "PP"
+        "id": "M27"
       },
       {
-        "id": "M31",
-        "width": 2.5
+        "id": "M25"
       },
       {
-        "id": "M29",
-        "width": 2.5
+        "id": "M23"
       },
       {
-        "id": "M27",
-        "width": 2.5
+        "id": "M21"
       },
       {
-        "id": "M25",
-        "width": 2.5
+        "id": "M19"
       },
       {
-        "id": "M23",
-        "width": 2.5
+        "id": "M17"
       },
       {
-        "id": "M21",
-        "width": 2.5
+        "id": "M15"
       },
       {
-        "id": "M19",
-        "width": 2.5
+        "id": "M13"
       },
       {
-        "id": "M17",
-        "width": 2.5
+        "id": "M11"
       },
       {
-        "id": "M15",
-        "width": 2.5
+        "id": "M9"
       },
       {
-        "id": "M13",
-        "width": 2.5
+        "id": "M7"
       },
       {
-        "id": "M11",
-        "width": 2.5
+        "id": "M5"
       },
       {
-        "id": "M9",
-        "width": 2.5
-      },
-      {
-        "id": "M7",
-        "width": 2.5
-      },
-      {
-        "id": "M5",
-        "width": 2.5
-      },
-      {
-        "id": "M3",
-        "width": 2.5
+        "id": "M3"
       },
       {
         "id": "M1",
-        "width": 2.5,
         "defaultOwner": "RTM"
-      },
-      {
-        "id": "M83",
-        "width": 2
       }
     ]
   }

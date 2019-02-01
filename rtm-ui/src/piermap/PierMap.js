@@ -20,13 +20,28 @@ const stats = {
   }
 };
 
+const mapBerthType = (berthType) => {
+  switch (berthType) {
+    case "Kylkipaikka":
+      return "KP";
 
+    case "Poijupaikka":
+      return "PP";
+
+    case "Aisapaikka":
+      return "AP";
+
+    default: return null;
+  }
+};
+
+const rendered = {};
 
 const Berth = (props) => {
   const {berthConf, prevEmpty} = props;
   const classNames = ["berth"];
   const id = berthConf.id;
-  const berth = berthConf.berthOwner;
+  const berth = berthConf.berthInfo;
 
   if (!id) {
     classNames.push("empty");
@@ -60,37 +75,26 @@ const Berth = (props) => {
     pierId = id;
   }
 
+  const berthType = berth ? berth.berthType : null;
+
+  if (berth) {
+    rendered[id] = true;
+  }
+
   return (
     <div className={classNames.join(" ")}>
       <div className="pier-id">{pierId}</div>
       <div className="pier-info">{pierInfo}</div>
-      {berthConf.type && <div className="pier-type badge">{berthConf.type}</div>}
-      {berthConf.width && <div className="pier-width badge">{berthConf.width.toFixed(1)}</div>}
+      {berthType && <div className="pier-type badge">{berthType}</div>}
+      {berth && <div className="pier-width badge">{berth.width.toFixed(1)}</div>}
     </div>
   );
-};
-
-const handleBeams = (berthList) => {
-  let firstBeam = 0;
-  while (firstBeam < berthList.length && "AP" !== berthList[firstBeam].type) {
-    firstBeam++;
-  }
-
-  if (firstBeam >= 0 && firstBeam < berthList.length) {
-    let i = firstBeam;
-    for (; i < berthList.length && "AP" === berthList[i].type; i += 2) {
-      berthList[i].beam = true;
-    }
-    if (i < berthList.length) {
-      berthList[i].beam = true;
-    }
-  }
 };
 
 const Pier = ({pierName, berths, statsComponent}) => {
 
   const createBerth = (berthConf, prevEmpty, className) => {
-    berthConf.berthOwner = berths[berthConf.id];
+    berthConf.berthInfo = berths[berthConf.id];
     return <Berth key={berthConf.id || emptyCounter++} className={className} prevEmpty={prevEmpty} berthConf={berthConf}/>;
   };
 
@@ -101,6 +105,32 @@ const Pier = ({pierName, berths, statsComponent}) => {
       prevEmpty = !b.id;
       return berth;
     });
+  };
+
+  const getType = berth => {
+    const berthInfo = berths[berth.id];
+    if (berthInfo) {
+      return berthInfo.berthType;
+    } else {
+      return null;
+    }
+  };
+
+  const handleBeams = (berthList) => {
+    let firstBeam = 0;
+    while (firstBeam < berthList.length && "AP" !== getType(berthList[firstBeam])) {
+      firstBeam++;
+    }
+
+    if (firstBeam >= 0 && firstBeam < berthList.length) {
+      let i = firstBeam;
+      for (; i < berthList.length && "AP" === getType(berthList[i]); i += 2) {
+        berthList[i].beam = true;
+      }
+      if (i < berthList.length) {
+        berthList[i].beam = true;
+      }
+    }
   };
 
   const pier = pierconf[pierName];
@@ -114,9 +144,7 @@ const Pier = ({pierName, berths, statsComponent}) => {
           {mapBerths(pier.left)}
         </div>
         <div className="pier-divider">
-          <div className="pier-end">
-            <div className="pier-type badge">PP</div>
-          </div>
+          <div className="pier-end"/>
           <div className="pier-filler"/>
           <div className="pier-name">{pierName}</div>
         </div>
@@ -196,6 +224,23 @@ class PierMap extends React.Component {
     });
     if (resp.ok) {
       const berths = await resp.json();
+      for (const berthId in berths) {
+        if (berths.hasOwnProperty(berthId)) {
+          const berth = berths[berthId];
+          berth.berthType = mapBerthType(berth.berthType);
+          const origWidth = berth.width;
+          const billingWidth = parseFloat(berth.name.replace(/^.*(\d,\d)m$/, "$1").replace(",", "."));
+          if (isNaN(billingWidth)) {
+            console.warn("Laituri " + berthId + ": laskutusleveyttä ei pystytty lukemaan, käytetään " +
+              "määriteltyä leveyttä (" + origWidth + ")");
+          }
+          if (origWidth !== billingWidth && !isNaN(billingWidth)) {
+            console.warn("Laituri " + berthId + ": määritelty leveys (" + origWidth +
+              ") ei vastaa laskutusleveyttä (" + billingWidth + "). Käytetään laskutusleveyttä.");
+          }
+          berth.width = billingWidth;
+        }
+      }
       this.setState({berths});
     } else {
       const error = new Error(resp.statusText);
@@ -206,6 +251,20 @@ class PierMap extends React.Component {
 
   async componentDidMount () {
     await this.fetchBerths();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const notRendered = [];
+    const berths = this.state.berths;
+    for (const berthId in berths) {
+      if (berths.hasOwnProperty(berthId) && !rendered[berthId]) {
+        notRendered.push(berthId);
+      }
+    }
+
+    if (notRendered.length) {
+      console.warn("Laiturit määritelty Suulissa mutta ei laiturikartassa: " + notRendered.sort().join(","));
+    }
   }
 
   render () {
